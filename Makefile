@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/03 14:24:32 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/03 14:34:46 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ NAME = libftprintf.a
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-SRC = \
-       ft_printf.c
-OBJS = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
-SRCS  = $(addprefix $(SRC_DIR), $(SRC))
+SRCS = \
+		src/ft_printf.c \
+		src/libft/ft_putstr_fd.c
+
+OBJS = $(SRCS:.c=.o)
 
 # _.-=+=-._.-=+=-._[ Tools Var ]_.-=+=-._.-=+=-._ #
 
@@ -39,10 +40,8 @@ $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 	@printf "\033[32;1m[================ Linked OK =================]\033[32;0m\n"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAG) -I include -c $< -o $@
-	@printf "\033[32;1m[================ Compile OK =================]\033[32;0m\n"
+%.o: %.c
+	$(CC) $(CFLAG) -I include -c $^ -o $@
 
 clean:
 	rm -rf $(OBJS)
