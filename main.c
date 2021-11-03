@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/03 15:55:37 by mahadad          ###   ########.fr       */
+/*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
+/*   Updated: 2021/11/03 15:59:54 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "include/ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+int	main(void)
 {
-	// va_list arg;
-
-	(void)str;
-	// va_start(arg, str);
-	ft_putstr("UwU");
+	ft_printf("test");
 	return (0);
 }

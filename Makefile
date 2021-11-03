@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/03 14:34:46 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/03 15:57:54 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,12 @@ OBJ_DIR = obj/
 
 SRCS = \
 		src/ft_printf.c \
-		src/libft/ft_putstr_fd.c
+		src/libft/ft_putstr.c
+SRC		= $(notdir $(SRCS))
+OBJ		= $(SRC:.c=.o)
+OBJS	= $(addprefix $(OBJ_DIR), $(OBJ))
 
-OBJS = $(SRCS:.c=.o)
+VPATH = $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
 
 # _.-=+=-._.-=+=-._[ Tools Var ]_.-=+=-._.-=+=-._ #
 
@@ -40,20 +43,25 @@ $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 	@printf "\033[32;1m[================ Linked OK =================]\033[32;0m\n"
 
-%.o: %.c
-	$(CC) $(CFLAG) -I include -c $^ -o $@
+$(OBJ_DIR)%.o: %.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAG) -I include -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(OBJ_DIR)
+
 re: fclean all
 
+# _.-=+=-._.-=+=-._[ Dev Tools #TODO REMOVE ]_.-=+=-._.-=+=-._ #
 
-# _.-=+=-._.-=+=-._[ Tools ]_.-=+=-._.-=+=-._ #
+.PHONY: c, cf, r, git, fgit, main
 
-.PHONY: c, cf, r, git, fgit
+main: $(NAME)
+	$(CC) $(CFLAG) $(NAME) main.c
 
 c: clean
 

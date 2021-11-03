@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/02 17:33:40 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/03 15:56:51 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@
  */
 int	ft_printf(const char *, ...);
 
+/* -=- File: [ src/libft/. ] -=- */
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
 #endif
