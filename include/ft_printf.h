@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/03 15:56:51 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/03 17:08:35 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,19 @@
  */
 int	ft_printf(const char *, ...);
 
+/* -=- File: [ src/arg_manager.c ] -=- */
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @param av 
+ * @return int 
+ */
+int	agr_manager(const char *str, va_list *av);
+
 /* -=- File: [ src/libft/. ] -=- */
+
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 #endif

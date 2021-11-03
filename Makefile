@@ -6,32 +6,39 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/03 15:57:54 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/03 17:11:12 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # _.-=+=-._.-=+=-._[ Var ]_.-=+=-._.-=+=-._ #
 
-CC    = gcc
-CFLAG = -Wall -Wextra -Werror
+CC		= gcc
+DEBUG	= -fsanitize=address
+CFLAG	= -Wall -Wextra -Werror $(DEBUG)
 
-NAME = libftprintf.a
+NAME	=libftprintf.a
+
+# _.-=+=-._.-=+=-._[ Source & Bin ]_.-=+=-._.-=+=-._ #
 
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-SRCS = \
+# _.-=[ Ft_printf ]=-._ #
+
+SRCS	= \
 		src/ft_printf.c \
-		src/libft/ft_putstr.c
+		src/arg_manager.c
+
+# _.-=[ Libft ]=-._ #
+SRCS	+= \
+		src/libft/ft_putstr.c \
+		src/libft/ft_putchar.c
+
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_DIR), $(OBJ))
 
-VPATH = $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
-
-# _.-=+=-._.-=+=-._[ Tools Var ]_.-=+=-._.-=+=-._ #
-
-BRANCH = main
+VPATH	= $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
 
 # _.-=+=-._.-=+=-._[ Rules ]_.-=+=-._.-=+=-._ #
 
@@ -58,10 +65,21 @@ re: fclean all
 
 # _.-=+=-._.-=+=-._[ Dev Tools #TODO REMOVE ]_.-=+=-._.-=+=-._ #
 
-.PHONY: c, cf, r, git, fgit, main
+.PHONY: c, cf, r, git, fgit, m, mor, mft, exe
 
-main: $(NAME)
+BRANCH	= main
+
+exe:
+	echo "\033[1J"
+	./a.out
+
+m: $(NAME)
 	$(CC) $(CFLAG) $(NAME) main.c
+
+mor:
+	gcc main.c $(CFLAG)  -D OR_
+mft: $(NAME)
+	gcc main.c $(NAME) $(CFLAG) -D FT_
 
 c: clean
 
@@ -74,7 +92,6 @@ git:
 	@-git add .
 	@git commit -am "Makefile push `date +'%Y-%m-%d %H:%M:%S'`"
 	@-git push
-
 
 fgit:
 	@printf "\033[31;1m ======== /!\\ Hard reset to the preview commit ? /!\\ ======== \033[0m\n"
