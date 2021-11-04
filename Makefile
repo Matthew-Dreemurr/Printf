@@ -56,10 +56,13 @@ $(OBJ_DIR)%.o: %.c
 
 clean:
 	@rm -rf $(OBJS)
+	@printf "\033[31;1m[Remove *.o]\033[32;0m\n"
 
 fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(OBJ_DIR)
+	@printf "\033[31;1m[Remove $(OBJ_DIR)]\033[32;0m\n"
+	@printf "\033[31;1m[Remove $(NAME)]\033[32;0m\n"
 
 re: fclean all
 
@@ -83,7 +86,7 @@ mft: $(NAME)
 
 c: clean
 
-cf: fclear
+fc: fclear
 
 r: re
 
