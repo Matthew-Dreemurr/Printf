@@ -13,19 +13,23 @@
 #include "include/ft_printf.h"
 #include <stdio.h>
 
-#define ARG "%c", 'c'
+#define ARG "\n"
 
 int	main(void)
 {
 #ifndef OR_
-	ft_putstr("FT_[");
-	ft_printf(ARG);
-	ft_putstr("]\n");
+	int ret_ft = 0;
+
+	ft_putstr("FT_\n");
+	ret_ft = ft_printf(ARG);
+	printf("\n[%d]\n\n", ret_ft);
 #endif
 #ifndef FT_
-	printf("OR_[");
-	printf(ARG);
-	printf("]\n");
+	int ret_or = 0;
+
+	printf("OR_\n");
+	ret_or = printf(ARG);
+	printf("\n[%d]\n", ret_or);
 #endif
 	return (0);
 }

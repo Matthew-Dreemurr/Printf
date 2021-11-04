@@ -12,10 +12,11 @@
 
 #include "../include/ft_printf.h"
 
-int	agr_manager(const char *str, va_list *av)
+int	agr_manager(const char *str, va_list *av, t_data *d)
 {
 	(void)str;
 	(void)av;
+	(void)d;
 	ft_putstr("ARG CALL\n");
 	return (1);
 }

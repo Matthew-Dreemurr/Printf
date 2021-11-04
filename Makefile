@@ -47,19 +47,19 @@ VPATH	= $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	@ar -rcs $(NAME) $(OBJS)
 	@printf "\033[32;1m[================ Linked OK =================]\033[32;0m\n"
 
 $(OBJ_DIR)%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAG) -I include -c $< -o $@
+	@$(CC) $(CFLAG) -I include -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
-	rm -rf $(OBJ_DIR)
+	@rm -rf $(NAME)
+	@rm -rf $(OBJ_DIR)
 
 re: fclean all
 
@@ -70,16 +70,16 @@ re: fclean all
 BRANCH	= main
 
 exe:
-	echo "\033[1J"
-	./a.out
+	@echo "\033[1J"
+	@./a.out
 
 m: $(NAME)
-	$(CC) $(CFLAG) $(NAME) main.c
+	@$(CC) $(CFLAG) $(NAME) main.c
 
 mor:
-	gcc main.c $(CFLAG)  -D OR_
+	@gcc main.c $(CFLAG)  -D OR_
 mft: $(NAME)
-	gcc main.c $(NAME) $(CFLAG) -D FT_
+	@gcc main.c $(NAME) $(CFLAG) -D FT_
 
 c: clean
 

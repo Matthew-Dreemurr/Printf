@@ -27,6 +27,18 @@
 /* -=- File: [ src/ft_printf.c ] -=- */
 
 /**
+ * @brief test
+ * @param int `r` Return value
+ * 
+ */
+typedef struct	s_data
+{
+	int	r;
+}				t_data;
+
+/* -=- File: [ src/ft_printf.c ] -=- */
+
+/**
  * @brief The main function
  * 
  * @param ...
@@ -43,10 +55,13 @@ int	ft_printf(const char *, ...);
  * @param av 
  * @return int 
  */
-int	agr_manager(const char *str, va_list *av);
+int	agr_manager(const char *str, va_list *av, t_data *d);
 
 /* -=- File: [ src/libft/. ] -=- */
 
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
+int	putstr_ret_int(char *s);
+int	putchar_ret_int(char c);
+
 #endif

@@ -15,6 +15,7 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
+	t_data	d;
 
 	va_start(arg, str);
 	while (*str)
@@ -24,8 +25,8 @@ int	ft_printf(const char *str, ...)
 		else if (*++str == '%')
 				ft_putchar(*str++);
 		else
-			if (!agr_manager(str, &arg))
-				return (1); //ERROR
+			if (!agr_manager(++str, &arg, &d))
+				return (1); //Return ERROR
 		str++;
 	}
 	return (0);
