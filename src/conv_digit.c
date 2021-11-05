@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conv_digit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/05 13:37:17 by mahadad          ###   ########.fr       */
+/*   Created: 2021/11/05 13:01:32 by mahadad           #+#    #+#             */
+/*   Updated: 2021/11/05 13:20:44 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include <stdio.h>
+#include "../include/ft_printf.h"
 
-#define ARG "test123%"
-
-int	main(void)
+int	conv_d(const char *str, va_list *arg, t_data *d)
 {
-#ifndef OR_
-	int ret_ft = 0;
+	(void)str;
+	(void)arg;
+	(void)d;
+	return (1);
+}
 
-	ft_putstr("FT_\n");
-	ret_ft = ft_printf(ARG);
-	printf("\n[%d]\n\n", ret_ft);
-#endif
-#ifndef FT_
-	int ret_or = 0;
+int	conv_i(const char *str, va_list *arg, t_data *d)
+{
+	(void)str;
+	(void)arg;
+	(void)d;
+	return (1);
+}
 
-	printf("OR_\n");
-	ret_or = printf(ARG);
-	printf("\n[%d]\n", ret_or);
-#endif
-	return (0);
+int	conv_u(const char *str, va_list *arg, t_data *d)
+{
+	(void)str;
+	(void)arg;
+	(void)d;
+	return (1);
 }

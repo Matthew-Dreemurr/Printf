@@ -6,15 +6,17 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/03 17:11:12 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/05 13:55:12 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # _.-=+=-._.-=+=-._[ Var ]_.-=+=-._.-=+=-._ #
 
 CC		= gcc
-DEBUG	= -fsanitize=address
-CFLAG	= -Wall -Wextra -Werror $(DEBUG)
+FSANI	= -fsanitize=address
+DEBUG	= -g
+WERROR	= -Wall -Wextra -Werror
+CFLAG	= $(WERROR) $(DEBUG) $(FSANI)
 
 NAME	=libftprintf.a
 
@@ -23,13 +25,18 @@ NAME	=libftprintf.a
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-# _.-=[ Ft_printf ]=-._ #
+# _.-=[ src/ ]=-._ #
 
 SRCS	= \
 		src/ft_printf.c \
-		src/arg_manager.c
+		src/arg_manager.c \
+		src/conv_char.c \
+		src/conv_ptr.c \
+		src/conv_digit.c \
+		src/conv_char.c \
+		src/conv_utils.c
 
-# _.-=[ Libft ]=-._ #
+# _.-=[ src/libft ]=-._ #
 SRCS	+= \
 		src/libft/ft_putstr.c \
 		src/libft/ft_putchar.c \
@@ -82,9 +89,9 @@ m: $(NAME)
 	@$(CC) $(CFLAG) $(NAME) main.c
 
 mor:
-	@gcc main.c $(CFLAG)  -D OR_
+	@gcc main.c  -D OR_
 mft: $(NAME)
-	@gcc main.c $(NAME) $(CFLAG) -D FT_
+	@gcc $(CFLAG) main.c $(NAME)  -D FT_
 
 c: clean
 
