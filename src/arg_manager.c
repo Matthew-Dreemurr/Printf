@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/05 19:37:16 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/05 19:40:25 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	arg_manager(const char *str, va_list *av, t_data *d)
 
 	(void)conversion;
 	(void)index;
-	(void)f;
+	(void)f;//TODO flag while
 	d->skip = 0;
 	if (ft_isdigit(*str))
 		width_len(str, d);

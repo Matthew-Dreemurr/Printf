@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/05 19:06:56 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/05 19:41:21 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	data_init(t_data *d)
 	d->zero = 0;
 	d->point = 0;
 	d->prefix = 0;
+	d->unsign = 0;
+	d->sign = 0;
 	d->width = 0;
 	d->skip = 0;
 }
