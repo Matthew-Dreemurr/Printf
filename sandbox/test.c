@@ -6,10 +6,11 @@
 
 #include "../include/ft_printf.h"
 #include "../src/libft/libft.h"
+#include <stdio.h>
 
 int	main(void)
 {
 
-	
+	printf("[%d]\n", putstr_ret_int(NULL));
 	return (0);
 }

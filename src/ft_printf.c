@@ -21,13 +21,13 @@ int	ft_printf(const char *str, ...)
 	while (*str)
 	{
 		if (*str != '%')
-			ft_putchar(*str);
+			d.r += putchar_ret_int(*str);
 		else if (*++str == '%')
-				ft_putchar(*str++);
+				d.r += putchar_ret_int(*str++);
 		else
 			if (!agr_manager(++str, &arg, &d))
 				return (1); //Return ERROR
 		str++;
 	}
-	return (0);
+	return (d.r);
 }

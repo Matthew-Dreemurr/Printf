@@ -13,7 +13,7 @@
 #include "include/ft_printf.h"
 #include <stdio.h>
 
-#define ARG "\n"
+#define ARG "test123\t13123\nUwU"
 
 int	main(void)
 {

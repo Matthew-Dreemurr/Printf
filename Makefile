@@ -32,7 +32,9 @@ SRCS	= \
 # _.-=[ Libft ]=-._ #
 SRCS	+= \
 		src/libft/ft_putstr.c \
-		src/libft/ft_putchar.c
+		src/libft/ft_putchar.c \
+		src/libft/putchar_ret_int.c \
+		src/libft/putstr_ret_int.c
 
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
