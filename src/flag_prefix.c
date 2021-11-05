@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_digit.c                                       :+:      :+:    :+:   */
+/*   flag_prefix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 13:01:32 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/05 19:08:06 by mahadad          ###   ########.fr       */
+/*   Created: 2021/11/05 19:34:02 by mahadad           #+#    #+#             */
+/*   Updated: 2021/11/05 19:35:30 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,38 @@
 /**
  * @brief 
  * 
- * @return int `0` if error else `!0`.
+ * @return int 
  */
-int	conv_d(const char *str, va_list *arg, t_data *d)
+int	flag_prefix(const char *str, va_list *arg, t_data *d)
 {
-	(void)str;
 	(void)arg;
+	(void)str;
 	(void)d;
-	ft_putstr("conv_d");
-	return (1);
+	return (0);
 }
 
 /**
  * @brief 
  * 
- * @return int `0` if error else `!0`.
+ * @return int 
  */
-int	conv_i(const char *str, va_list *arg, t_data *d)
+int	flag_unsign(const char *str, va_list *arg, t_data *d)
 {
-	(void)str;
 	(void)arg;
+	(void)str;
 	(void)d;
-	ft_putstr("conv_i");
-	return (1);
+	return (0);
 }
 
 /**
  * @brief 
  * 
- * @return int `0` if error else `!0`.
+ * @return int 
  */
-int	conv_u(const char *str, va_list *arg, t_data *d)
+int	flag_sing(const char *str, va_list *arg, t_data *d)
 {
-	(void)str;
 	(void)arg;
+	(void)str;
 	(void)d;
-	ft_putstr("conv_u");
-	return (1);
+	return (0);
 }

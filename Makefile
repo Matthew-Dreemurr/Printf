@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/05 13:55:12 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/05 19:36:16 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,14 +34,18 @@ SRCS	= \
 		src/conv_ptr.c \
 		src/conv_digit.c \
 		src/conv_char.c \
-		src/conv_utils.c
+		src/conv_utils.c \
+		src/flag_padding.c \
+		src/flag_prefix.c
 
 # _.-=[ src/libft ]=-._ #
 SRCS	+= \
 		src/libft/ft_putstr.c \
 		src/libft/ft_putchar.c \
 		src/libft/putchar_ret_int.c \
-		src/libft/putstr_ret_int.c
+		src/libft/putstr_ret_int.c \
+		src/libft/ft_isdigit.c \
+		src/libft/ft_atoi.c
 
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
