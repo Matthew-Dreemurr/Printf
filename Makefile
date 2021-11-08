@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/05 19:36:16 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/08 15:45:14 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,11 +60,11 @@ VPATH	= $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@mkdir -p $(OBJ_DIR)
 	@ar -rcs $(NAME) $(OBJS)
 	@printf "\033[32;1m[================ Linked OK =================]\033[32;0m\n"
 
 $(OBJ_DIR)%.o: %.c
-	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAG) -I include -c $< -o $@
 
 clean:
