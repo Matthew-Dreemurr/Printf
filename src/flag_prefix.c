@@ -6,11 +6,11 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 19:34:02 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/05 19:35:30 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/08 16:17:21 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 /**
  * @brief 
