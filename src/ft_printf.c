@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/08 16:17:21 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/09 11:50:36 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	ft_printf(const char *str, ...)
 		if (*str != '%')
 			d.r += putchar_ret_int(*str);
 		else if (*str == '%' && *(str + 1) == '%')
-				d.r += putchar_ret_int(*str++);
+			d.r += putchar_ret_int(*str++);
 		else
 			if (!arg_manager(++str, &arg, &d))
-				return (-1); //Return ERROR
+				return (PRNT_EXIT_FAILURE);
 		if (!*str)
 			break ;
 		else

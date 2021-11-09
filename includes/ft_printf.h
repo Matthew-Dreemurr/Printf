@@ -6,26 +6,28 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/05 19:36:06 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/09 11:46:18 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-/* _.-=+=-._.-=+=-._[ Defines ]_.-=+=-._.-=+=-._ */
+/* _.-=+=-._.-=+=-._[ Macro ]_.-=+=-._.-=+=-._ */
 
-#define F_ARR_CONV_CONV 9
-#define F_ARR_CONV_FLAG 6
+# define F_ARR_CONV_CONV     9
+# define F_ARR_CONV_FLAG     6
+# define PRNT_EXIT_FAILURE  -1
+# define PRNT_EXIT_SUCCESS  -1
 
 /* _.-=+=-._.-=+=-._[ Includes ]_.-=+=-._.-=+=-._ */
 
 /* -[ Malloc, Free ]-*/
-#include <stdarg.h>
+# include <stdarg.h>
 /* -[ Va_start, Va_arg, Va_copy, Va_arg ]-*/
-#include <stdlib.h>
+# include <stdlib.h>
 /* -[ Write ]-*/
-#include <unistd.h>
+# include <unistd.h>
 
 /* _.-=+=-._.-=+=-._[ Typedef ]_.-=+=-._.-=+=-._ */
 
@@ -42,7 +44,7 @@
  * @param skip   `int`  The char to skip in `str`.
  *
  */
-typedef struct	s_data
+typedef struct s_data
 {
 	int		r;
 	int		minus;
@@ -58,55 +60,53 @@ typedef struct	s_data
 /**
  * @brief Function pointer.
  */
-typedef int (*t_function_ptr)(const char *str, va_list *arg, t_data *d);
+typedef int	(*t_function_ptr)(const char *str, va_list *arg, t_data *d);
 
 /* _.-=+=-._.-=+=-._[ Prototypes ]_.-=+=-._.-=+=-._ */
-
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/ft_printf.c ] -=-=-=-=-=-=-=-=-=- */
 
 void	data_init(t_data *d);
-int	ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/arg_manager.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conversion_manager(const char *str, va_list *av, t_data *d);
-int	arg_manager(const char *str, va_list *av, t_data *d);
+int		conversion_manager(const char *str, va_list *av, t_data *d);
+int		arg_manager(const char *str, va_list *av, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_char.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conv_c(const char *str, va_list *arg, t_data *d);
-int	conv_s(const char *str, va_list *arg, t_data *d);
+int		conv_c(const char *str, va_list *arg, t_data *d);
+int		conv_s(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_digit.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conv_d(const char *str, va_list *arg, t_data *d);
-int	conv_i(const char *str, va_list *arg, t_data *d);
-int	conv_u(const char *str, va_list *arg, t_data *d);
+int		conv_d(const char *str, va_list *arg, t_data *d);
+int		conv_i(const char *str, va_list *arg, t_data *d);
+int		conv_u(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_ptr.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conv_p(const char *str, va_list *arg, t_data *d);
-int	conv_x(const char *str, va_list *arg, t_data *d);
-int	conv_xx(const char *str, va_list *arg, t_data *d);
+int		conv_p(const char *str, va_list *arg, t_data *d);
+int		conv_x(const char *str, va_list *arg, t_data *d);
+int		conv_xx(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_utils.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conv_invalid(const char *str, va_list *arg, t_data *d);
-void width_len(const char *str, t_data *d);
+int		conv_invalid(const char *str, va_list *arg, t_data *d);
+void	width_len(const char *str, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_padding.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	flag_minus(const char *str, va_list *arg, t_data *d);
-int	flag_zero(const char *str, va_list *arg, t_data *d);
-int	flag_point(const char *str, va_list *arg, t_data *d);
+int		flag_minus(const char *str, va_list *arg, t_data *d);
+int		flag_zero(const char *str, va_list *arg, t_data *d);
+int		flag_point(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_prefix.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	flag_prefix(const char *str, va_list *arg, t_data *d);
-int	flag_unsign(const char *str, va_list *arg, t_data *d);
-int	flag_sing(const char *str, va_list *arg, t_data *d);
-
+int		flag_prefix(const char *str, va_list *arg, t_data *d);
+int		flag_unsign(const char *str, va_list *arg, t_data *d);
+int		flag_sing(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/libft/. ] -=-=-=-=-=-=-=-=-=- */
 

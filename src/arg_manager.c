@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/08 16:17:21 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/09 11:49:37 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ int	conversion_manager(const char *str, va_list *av, t_data *d)
 	{
 		if (*conversion++ == *str)
 		{
-			if(!f[index](str, av, d))
-				return (0);//ERROR
+			if (!f[index](str, av, d))
+				return (EXIT_FAILURE);
 			break ;
 		}
 		index++;
 	}
 	if (!*conversion)
-		if(!f[index](str, av, d))
-				return (0);//ERROR
-return (1);
+		if (!f[index](str, av, d))
+			return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 /**
