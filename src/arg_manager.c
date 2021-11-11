@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 16:37:28 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:02:18 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,15 @@ int	arg_manager(const char *str, va_list *av, t_data *d)
 
 	conversion = "-0.# +";
 	index = 0;
-	(void)f;//TODO flag while
-	d->skip = 0;
-	if (ft_isdigit(*str))
-		d->skip += width_len(str, d);
-	while (*str && *conversion)
+	if (ft_isdigit(str[d->skip]))
+		d->skip += width_len(&str[d->skip], d);
+	while (str[d->skip])
 	{
-		if (*conversion++ == *str)
-		{
+		index = (ft_strchr(conversion, str[d->skip]) - conversion);
+		if (conversion[index])
 			if (!(f[index](str, av, d)))
 				return(EXIT_FAILURE);
 			break ;
-		}
 		index++;
 	}
 	if (!conversion_manager(str + d->skip, av, d))

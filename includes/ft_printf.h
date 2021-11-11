@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 16:28:20 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 16:58:05 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,7 @@ int		putstr_ret_int(char *s);
 int		putchar_ret_int(char c);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
+size_t	len_chrchr(char *str, char c);
+char	*ft_strchr(const char *s, int c);
 
 #endif
