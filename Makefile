@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/11 16:58:33 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/11 17:35:25 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CFLAGS		+= -fsanitize=address -g3
 endif
 
 
-INCLUDES	+= -I includes -I src/libft/includes
+INCLUDES	+= -I includes
 CFLAGS		= -Wall -Wextra -Werror $(INCLUDES)
 
 NAME		= libftprintf.a

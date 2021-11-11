@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 17:27:53 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:49:47 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ int	conversion_manager(const char *str, va_list *av, t_data *d)
 	int						index;
 	static t_function_ptr	f[F_ARR_CONV_CONV] = {
 		conv_c, conv_s, conv_p, conv_d, conv_i, conv_u, conv_x, conv_xx,
-		conv_invalid
+		conv_percent, conv_invalid
 	};
 
 	index = 0;
-	conversion = "cspdiuxX";
+	conversion = "cspdiuxX%";
 	while (*conversion)
 	{
-		if (*conversion++ == *str)
+		if (*conversion++ == str[d->skip])
 		{
 			if (!f[index](str, av, d))
 				return (F_EXIT_FAILURE);

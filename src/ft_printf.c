@@ -6,12 +6,11 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 17:29:59 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:53:44 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# include "libft.h"
 
 /**
  * @brief Init all var in t_data struct.
@@ -40,27 +39,20 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
 	t_data	d;
-	t_vector v;
 
 	va_start(arg, str);
 	data_init(&d);
-	if (!vect_init(&v, VEC_BUFFER_SIZE))
+	if (!vect_init(&d.v, VEC_BUFFER_SIZE))
 		return (PRNT_EXIT_FAILURE);
-	while (str[d.skip])
+	while (str[d.skip])//TODO check if str = "%%"
 	{
-		if (str[d.skip] != '%')
-			d.r += vect_push(&v, str[d.skip]);
+		if (str[d.skip++] != '%')
+			d.r += vect_push(&d.v, str[d.skip]);
 		else
-		{
-			if (!conversion_manager(&str[++d.skip], &arg, &d))
+			if (!conversion_manager(str, &arg, &d))
 				return (PRNT_EXIT_FAILURE);
-		}
-		if (!str[d.skip])
-			break ;
-		else
-			d.skip++;
 	}
-	ft_putstr_fd(v.buff, STDOUT_FILENO);
-	free(v.buff);
+	ft_putstr_fd(d.v.buff, STDOUT_FILENO);
+	free(d.v.buff);
 	return (d.r);
 }

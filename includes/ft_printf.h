@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 17:29:55 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:50:20 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 /* _.-=+=-._.-=+=-._[ Macro ]_.-=+=-._.-=+=-._ */
 
-# define F_ARR_CONV_CONV     9
-# define F_ARR_CONV_FLAG     6
+# define F_ARR_CONV_CONV     10
+// # define F_ARR_CONV_FLAG     6
+
 # define PRNT_EXIT_FAILURE   0
 # define PRNT_EXIT_SUCCESS   0
 # define F_EXIT_SUCCESS      1
@@ -34,6 +35,20 @@
 /* _.-=+=-._.-=+=-._[ Typedef ]_.-=+=-._.-=+=-._ */
 
 /**
+ * @brief s_vector struc to manage the memory of a char array.
+ * 
+ * @param len      Actual size use in buff.
+ * @param max      Actual max size.
+ * @param buff     The buffer is alloc whit (VEC_BUFFER_SIZE + 1).
+ */
+typedef struct s_vector
+{
+	size_t	len;
+	size_t	max;
+	char	*buff;
+}				t_vector;
+
+/**
  * @brief test
  * @param r          `int`     Return value.
  * @param minus      `int`     Flag `-`.
@@ -48,15 +63,16 @@
  */
 typedef struct s_data
 {
-	int		r;
-	int		minus;
-	int		zero;
-	int		point;
-	int		prefix;
-	int		unsign;
-	int		sign;
-	int		width;
-	int		skip;
+	int			r;
+	int			minus;
+	int			zero;
+	int			point;
+	int			prefix;
+	int			unsign;
+	int			sign;
+	int			width;
+	int			skip;
+	t_vector	v;
 }				t_data;
 
 /**
@@ -80,6 +96,7 @@ int		arg_manager(const char *str, va_list *av, t_data *d);
 
 int		conv_c(const char *str, va_list *arg, t_data *d);
 int		conv_s(const char *str, va_list *arg, t_data *d);
+int		conv_percent(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_digit.c ] -=-=-=-=-=-=-=-=-=- */
 
@@ -114,11 +131,23 @@ int		flag_sing(const char *str, va_list *arg, t_data *d);
 
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
+void	ft_putstr_fd(char *s, int fd);
 int		putstr_ret_int(char *s);
 int		putchar_ret_int(char c);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 size_t	len_chrchr(char *str, char c);
 char	*ft_strchr(const char *s, int c);
+
+/*=={ src/vector }==*/
+
+# define VEC_EXIT_FAILURE ((int)0)
+# define VEC_EXIT_SUCCESS ((int)1)
+# define VEC_BUFFER_SIZE  ((unsigned long)256)
+
+int			vect_init(t_vector *v, size_t size);
+int			vect_resize(t_vector *v, size_t size);
+int			vect_cat(t_vector *v, char *str);
+int			vect_push(t_vector *v, char c);
 
 #endif
