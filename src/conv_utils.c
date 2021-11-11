@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:45:18 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 16:29:50 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:30:29 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	conv_invalid(const char *str, va_list *arg, t_data *d)
 	(void)arg;
 	(void)d;
 	ft_putstr("conv_invalid");
-	return (1);
+	return (F_EXIT_FAILURE);
 }
 
 /**

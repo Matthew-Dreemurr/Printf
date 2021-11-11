@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 16:58:05 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:29:55 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 
 # define F_ARR_CONV_CONV     9
 # define F_ARR_CONV_FLAG     6
-# define PRNT_EXIT_FAILURE  -1
-# define PRNT_EXIT_SUCCESS  -1
+# define PRNT_EXIT_FAILURE   0
+# define PRNT_EXIT_SUCCESS   0
+# define F_EXIT_SUCCESS      1
+# define F_EXIT_FAILURE      0
 
 /* _.-=+=-._.-=+=-._[ Includes ]_.-=+=-._.-=+=-._ */
 
@@ -33,15 +35,15 @@
 
 /**
  * @brief test
- * @param r      `int`     Return value.
- * @param minus  `int`     Flag `-`.
- * @param zero   `int`     Flag `0`.
- * @param point  `int`     Flag `.`.
- * @param prefix `int`     Flag `#`.
- * @param unsign `int`     Flag ` `.
- * @param sing   `int`     Flag `+`.
- * @param width  `int`  The size of minimum field.
- * @param skip   `int`  The char to skip in `str`.
+ * @param r          `int`     Return value.
+ * @param minus      `int`     Flag `-`.
+ * @param zero       `int`     Flag `0`.
+ * @param point      `int`     Flag `.`.
+ * @param prefix     `int`     Flag `#`.
+ * @param unsign     `int`     Flag ` `.
+ * @param sing       `int`     Flag `+`.
+ * @param width      `int`  The size of minimum field.
+ * @param skip       `int`  The char to skip in `str`.
  *
  */
 typedef struct s_data

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 16:41:58 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:29:59 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,17 @@ int	ft_printf(const char *str, ...)
 
 	va_start(arg, str);
 	data_init(&d);
-	vect_init(&v, VEC_BUFFER_SIZE);
+	if (!vect_init(&v, VEC_BUFFER_SIZE))
+		return (PRNT_EXIT_FAILURE);
 	while (str[d.skip])
 	{
 		if (str[d.skip] != '%')
 			d.r += vect_push(&v, str[d.skip]);
-		else if (str[d.skip] == '%' && str[d.skip + 1] == '%')
-			d.r += vect_push(&v, str[d.skip++]);
 		else
-			if (!arg_manager(&str[++d.skip], &arg, &d))
+		{
+			if (!conversion_manager(&str[++d.skip], &arg, &d))
 				return (PRNT_EXIT_FAILURE);
+		}
 		if (!str[d.skip])
 			break ;
 		else

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 17:02:18 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:27:53 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,14 @@ int	conversion_manager(const char *str, va_list *av, t_data *d)
 		if (*conversion++ == *str)
 		{
 			if (!f[index](str, av, d))
-				return (EXIT_FAILURE);
+				return (F_EXIT_FAILURE);
 			break ;
 		}
 		index++;
 	}
 	if (!*conversion)
-		if (!f[index](str, av, d))
-			return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (f[index](str, av, d));
+	return (F_EXIT_SUCCESS);
 }
 
 /**
@@ -64,6 +63,7 @@ int	conversion_manager(const char *str, va_list *av, t_data *d)
  * 
  * @return int Rerun `0` if error else `!0`.
  */
+/**
 int	arg_manager(const char *str, va_list *av, t_data *d)
 {
 	static t_function_ptr	f[F_ARR_CONV_FLAG] = {
@@ -72,21 +72,25 @@ int	arg_manager(const char *str, va_list *av, t_data *d)
 	};
 	char					*conversion;
 	int						index;
-
+ft_putstr("WIP\n");
 	conversion = "-0.# +";
-	index = 0;
-	if (ft_isdigit(str[d->skip]))
-		d->skip += width_len(&str[d->skip], d);
 	while (str[d->skip])
 	{
+		index = 0;
 		index = (ft_strchr(conversion, str[d->skip]) - conversion);
 		if (conversion[index])
+		{
 			if (!(f[index](str, av, d)))
 				return(EXIT_FAILURE);
+		}
+		else if (ft_isdigit(str[d->skip]))
+			d->skip += width_len(&str[d->skip], d);
+		else
 			break ;
-		index++;
+		d->skip++;
 	}
 	if (!conversion_manager(str + d->skip, av, d))
 		return (0);
 	return (1);
 }
+**/

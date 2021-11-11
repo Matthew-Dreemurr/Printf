@@ -6,14 +6,14 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 15:43:33 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 17:07:47 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-#define ARG "Hello Wolrd!"
+#define ARG "%123123-0.# +"
 
 int	main(void)
 {
