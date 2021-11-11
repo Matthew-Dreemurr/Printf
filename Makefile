@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/11 14:42:35 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/11 15:47:07 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ WRA = 0
 
 ifeq ($(WRA), 1)
 D = 1
-INCLUDES		= -I src/libft/includes/debug
+INCLUDES		+= -I src/libft/includes/debug -D WRA
 endif
 
 ifeq ($(D), 1)
@@ -26,14 +26,14 @@ CFLAGS		+= -fsanitize=address -g3
 endif
 
 
-INCLUDES	= -I includes -I src/libft/includes
+INCLUDES	+= -I includes -I src/libft/includes
 CFLAGS		= -Wall -Wextra -Werror $(INCLUDES)
 
 NAME		= libftprintf.a
 
 # _.-=+=-._.-=+=-._[ Source & Bin ]_.-=+=-._.-=+=-._ #
 SRC_DIR = src/
-OBJ_DIR = obj/
+OBJ_DIR = obj_printf/
 
 # _.-=[ src/ ]=-._ #
 SRCS	= \
@@ -50,14 +50,18 @@ src/flag_prefix.c
 # _.-=[ src/libft ]=-._ #
 SRCS	+= \
 src/libft/src/stdio/ft_putstr.c \
+src/libft/src/stdio/ft_putstr_fd.c \
 src/libft/src/stdio/ft_putchar.c \
 src/libft/src/stdio/putchar_ret_int.c \
 src/libft/src/stdio/putstr_ret_int.c \
 src/libft/src/ctype/ft_isdigit.c \
 src/libft/src/stdlib/ft_atoi.c \
 src/libft/src/vector/vect_cat.c \
+src/libft/src/vector/vect_push.c \
 src/libft/src/vector/vect_init.c \
-src/libft/src/vector/vect_resize.c
+src/libft/src/vector/vect_resize.c \
+src/libft/src/string/ft_memcpy.c
+
 
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
@@ -84,7 +88,6 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 	@printf "\033[32;1m[Compiled /w CFLAGS=$(CFLAGS)]\033[32;0m\n"
 	@ar -rcs $(NAME) $(OBJS)
 	@printf "\033[32;1m[== Linked OK ==]\033[32;0m\n"
-	$(VPATH) =
 
 clean:
 	@rm -rf $(OBJS)

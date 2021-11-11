@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 13:58:18 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 15:46:33 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	ft_printf(const char *str, ...)
 	{
 		str += d.skip;
 		if (*str != '%')
-			d.r += putchar_ret_int(*str);
+			d.r += vect_push(&v, *str);
 		else if (*str == '%' && *(str + 1) == '%')
-			d.r += putchar_ret_int(*str++);
+			d.r += vect_push(&v, *str++);
 		else
 			if (!arg_manager(++str, &arg, &d))
 				return (PRNT_EXIT_FAILURE);
@@ -60,5 +60,7 @@ int	ft_printf(const char *str, ...)
 		else
 			str++;
 	}
+	ft_putstr_fd(v.buff, STDOUT_FILENO);
+	free(v.buff);
 	return (d.r);
 }
