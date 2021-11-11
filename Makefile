@@ -6,12 +6,14 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/08 17:02:55 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/11 13:51:28 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # _.-=+=-._.-=+=-._[ Var ]_.-=+=-._.-=+=-._ #
 CC			= gcc
+
+D = 0
 
 ifeq ($(D), 1)
 FSANI		= -fsanitize=address
@@ -22,7 +24,7 @@ WERROR		= -Wall -Wextra -Werror
 CFLAGS		= $(WERROR) $(DEBUG) $(FSANI)
 
 NAME		= libftprintf.a
-INCLUDES	= -I includes/ -I src/libft/includes
+INCLUDES	= -I includes -I src/libft/includes
 
 # _.-=+=-._.-=+=-._[ Source & Bin ]_.-=+=-._.-=+=-._ #
 SRC_DIR = src/
@@ -42,12 +44,15 @@ src/flag_prefix.c
 
 # _.-=[ src/libft ]=-._ #
 SRCS	+= \
-src/libft/src/custom/ft_putstr.c \
-src/libft/src/custom/ft_putchar.c \
-src/libft/src/custom/putchar_ret_int.c \
-src/libft/src/custom/putstr_ret_int.c \
+src/libft/src/stdio/ft_putstr.c \
+src/libft/src/stdio/ft_putchar.c \
+src/libft/src/stdio/putchar_ret_int.c \
+src/libft/src/stdio/putstr_ret_int.c \
 src/libft/src/ctype/ft_isdigit.c \
-src/libft/src/stdlib/ft_atoi.c
+src/libft/src/stdlib/ft_atoi.c \
+src/libft/src/vector/vect_cat.c \
+src/libft/src/vector/vect_init.c \
+src/libft/src/vector/vect_resize.c
 
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
@@ -60,13 +65,14 @@ VPATH	= $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
 
 all: $(NAME)
 	@printf "\033[32;1m[== $(NAME) Created ! ==]\033[32;0m\n"
+	@if [[ $D = "1" ]]; then printf "\033[31;1m[/!\\ DEBUG ENABLE /!\\]\033[32;0m\n"; fi
 
 $(OBJ_DIR)%.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "\033[32;1m$@\033[32;0m\n"
 
 $(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 	@printf "\033[32;1m[Create $(OBJ_DIR)]\033[32;0m\n"
 
 $(NAME): $(OBJ_DIR) $(OBJS)
@@ -105,7 +111,7 @@ mft:
 
 c: clean
 
-fc: fclear
+fc: fclean
 
 r: re
 
