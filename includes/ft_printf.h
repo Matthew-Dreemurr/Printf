@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/09 11:46:18 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 16:28:20 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int		conv_xx(const char *str, va_list *arg, t_data *d);
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_utils.c ] -=-=-=-=-=-=-=-=-=- */
 
 int		conv_invalid(const char *str, va_list *arg, t_data *d);
-void	width_len(const char *str, t_data *d);
+int		 width_len(const char *str, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_padding.c ] -=-=-=-=-=-=-=-=-=- */
 

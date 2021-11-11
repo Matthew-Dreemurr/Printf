@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:45:18 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/08 16:17:21 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 16:29:50 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,21 @@ int	conv_invalid(const char *str, va_list *arg, t_data *d)
  * 
  * @param str 
  * @param d 
+ * 
+ * @return The len of `nbr`.
  */
-void width_len(const char *str, t_data *d)
+int width_len(const char *str, t_data *d)
 {
 	int	nbr;
+	int	i;
 
+	i = 0;
 	nbr = ft_atoi(str);
 	d->width = nbr;
 	while (nbr)
 	{
 		nbr /= 10;
-		d->skip++;
+		i++;
 	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 15:46:33 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 16:41:58 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,19 @@ int	ft_printf(const char *str, ...)
 	va_start(arg, str);
 	data_init(&d);
 	vect_init(&v, VEC_BUFFER_SIZE);
-	while (*str)
+	while (str[d.skip])
 	{
-		str += d.skip;
-		if (*str != '%')
-			d.r += vect_push(&v, *str);
-		else if (*str == '%' && *(str + 1) == '%')
-			d.r += vect_push(&v, *str++);
+		if (str[d.skip] != '%')
+			d.r += vect_push(&v, str[d.skip]);
+		else if (str[d.skip] == '%' && str[d.skip + 1] == '%')
+			d.r += vect_push(&v, str[d.skip++]);
 		else
-			if (!arg_manager(++str, &arg, &d))
+			if (!arg_manager(&str[++d.skip], &arg, &d))
 				return (PRNT_EXIT_FAILURE);
-		if (!*str)
+		if (!str[d.skip])
 			break ;
 		else
-			str++;
+			d.skip++;
 	}
 	ft_putstr_fd(v.buff, STDOUT_FILENO);
 	free(v.buff);
