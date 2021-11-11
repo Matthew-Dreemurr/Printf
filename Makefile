@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/11 13:51:28 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/11 14:42:35 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,22 @@
 CC			= gcc
 
 D = 0
+WRA = 0
 
-ifeq ($(D), 1)
-FSANI		= -fsanitize=address
-DEBUG		= -g
+ifeq ($(WRA), 1)
+D = 1
+INCLUDES		= -I src/libft/includes/debug
 endif
 
-WERROR		= -Wall -Wextra -Werror
-CFLAGS		= $(WERROR) $(DEBUG) $(FSANI)
+ifeq ($(D), 1)
+CFLAGS		+= -fsanitize=address -g3
+endif
+
+
+INCLUDES	= -I includes -I src/libft/includes
+CFLAGS		= -Wall -Wextra -Werror $(INCLUDES)
 
 NAME		= libftprintf.a
-INCLUDES	= -I includes -I src/libft/includes
 
 # _.-=+=-._.-=+=-._[ Source & Bin ]_.-=+=-._.-=+=-._ #
 SRC_DIR = src/
@@ -68,7 +73,7 @@ all: $(NAME)
 	@if [[ $D = "1" ]]; then printf "\033[31;1m[/!\\ DEBUG ENABLE /!\\]\033[32;0m\n"; fi
 
 $(OBJ_DIR)%.o: %.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	@printf "\033[32;1m$@\033[32;0m\n"
 
 $(OBJ_DIR):
@@ -79,6 +84,7 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 	@printf "\033[32;1m[Compiled /w CFLAGS=$(CFLAGS)]\033[32;0m\n"
 	@ar -rcs $(NAME) $(OBJS)
 	@printf "\033[32;1m[== Linked OK ==]\033[32;0m\n"
+	$(VPATH) =
 
 clean:
 	@rm -rf $(OBJS)

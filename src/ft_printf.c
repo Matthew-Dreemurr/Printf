@@ -6,11 +6,12 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/09 11:50:36 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 13:58:18 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+# include "libft.h"
 
 /**
  * @brief Init all var in t_data struct.
@@ -39,9 +40,11 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
 	t_data	d;
+	t_vector v;
 
 	va_start(arg, str);
 	data_init(&d);
+	vect_init(&v, VEC_BUFFER_SIZE);
 	while (*str)
 	{
 		str += d.skip;
