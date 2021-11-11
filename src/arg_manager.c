@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/09 11:49:37 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/11 16:06:31 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	conversion_manager(const char *str, va_list *av, t_data *d)
 /**
  * @brief 
  * 
- * @return int  int Rerun `0` if error else `!0`.
+ * @return int Rerun `0` if error else `!0`.
  */
 int	arg_manager(const char *str, va_list *av, t_data *d)
 {
