@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/12 15:19:29 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/12 16:12:03 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,9 @@ src/libft/src/vector/vect_cat.c \
 src/libft/src/vector/vect_push.c \
 src/libft/src/vector/vect_init.c \
 src/libft/src/vector/vect_resize.c \
-src/libft/src/string/ft_memcpy.c
+src/libft/src/string/ft_memcpy.c \
+src/libft/src/string/vect_itoa_cat.c \
+src/libft/src/string/rev_char_arr.c
 
 
 SRC		= $(notdir $(SRCS))

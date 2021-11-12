@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 15:01:39 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 16:14:50 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #endif
 #include <stdio.h>
 
-#define ARG "%d", 123
+#define ARG "%d", 1231231231312310999
 
 int	main(void)
 {

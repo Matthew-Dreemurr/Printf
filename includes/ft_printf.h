@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 15:19:37 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 16:07:53 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,8 @@ int		ft_atoi(const char *str);
 size_t	len_chrchr(char *str, char c);
 char	*ft_strchr(const char *s, int c);
 size_t	strlen_protect(const char *s);
-char	*itoa_rev(int n);
+int		vect_itoa_cat(int n, t_vector *v);
+void	rev_char_arr(char *str, size_t size);
 /*=={ src/vector }==*/
 
 # define VEC_EXIT_FAILURE ((int)0)
