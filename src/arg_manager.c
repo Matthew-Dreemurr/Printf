@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:03:00 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 12:31:36 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 15:03:39 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	conversion_manager(const char *str, va_list *av, t_data *d)
 	char					*conversion;
 	int						index;
 	static t_function_ptr	f[F_ARR_CONV] = {
-		conv_c, conv_s, conv_p, conv_d, conv_i, conv_u, conv_x, conv_xx,
+		conv_c, conv_s, conv_p, conv_d_i, conv_u, conv_x, conv_xx,
 		conv_percent, conv_invalid
 	};
 

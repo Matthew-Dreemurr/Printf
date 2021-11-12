@@ -6,14 +6,14 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:32:52 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 13:18:20 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 14:46:18 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /**
- * @brief 
+ * @brief Print a singlecharacter.
  * 
  * @return int `0` if error else `!0`.
  */
@@ -34,7 +34,7 @@ int	conv_c(const char *str, va_list *arg, t_data *d)
 }
 
 /**
- * @brief 
+ * @brief Print astring of characters.
  * 
  * @return int `0` if error else `!0`.
  */
@@ -54,6 +54,11 @@ int	conv_s(const char *str, va_list *arg, t_data *d)
 	return (F_EXIT_SUCCESS);
 }
 
+/**
+ * @brief Print a singlecharacter `%`.
+ * 
+ * @return int `0` if error else `!0`.
+ */
 int	conv_percent(const char *str, va_list *arg, t_data *d)
 {
 	int	ret;

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 13:10:49 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 15:19:37 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 
 /* _.-=+=-._.-=+=-._[ Macro ]_.-=+=-._.-=+=-._ */
 
-# define F_ARR_CONV     10
-// # define F_ARR_CONV_FLAG     6
+# define F_ARR_CONV           9
 
 # define PRNTF_EXIT_FAILURE   0
-# define PRNT_EXIT_SUCCESS   0
-# define F_EXIT_SUCCESS      1
-# define F_EXIT_FAILURE      0
+# define PRNT_EXIT_SUCCESS    0
+# define F_EXIT_SUCCESS       1
+# define F_EXIT_FAILURE       0
 
 /* _.-=+=-._.-=+=-._[ Includes ]_.-=+=-._.-=+=-._ */
 
@@ -101,8 +100,7 @@ int		conv_percent(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_digit.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		conv_d(const char *str, va_list *arg, t_data *d);
-int		conv_i(const char *str, va_list *arg, t_data *d);
+int	conv_d_i(const char *str, va_list *arg, t_data *d);
 int		conv_u(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_ptr.c ] -=-=-=-=-=-=-=-=-=- */
@@ -140,7 +138,7 @@ int		ft_atoi(const char *str);
 size_t	len_chrchr(char *str, char c);
 char	*ft_strchr(const char *s, int c);
 size_t	strlen_protect(const char *s);
-
+char	*itoa_rev(int n);
 /*=={ src/vector }==*/
 
 # define VEC_EXIT_FAILURE ((int)0)
