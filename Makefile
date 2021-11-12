@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/12 12:13:37 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/12 13:18:02 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ src/libft/src/stdio/ft_putchar.c \
 src/libft/src/stdio/putchar_ret_int.c \
 src/libft/src/stdio/putstr_ret_int.c \
 src/libft/src/stdio/ft_strchr.c \
+src/libft/src/stdio/strlen_protect.c \
 src/libft/src/string/len_chrchr.c \
 src/libft/src/ctype/ft_isdigit.c \
 src/libft/src/stdlib/ft_atoi.c \

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:32:52 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 12:29:35 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 13:18:20 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,18 @@
  */
 int	conv_c(const char *str, va_list *arg, t_data *d)
 {
+	char	c;
+	int		ret;
+
+
 	(void)str;
-	(void)arg;
-	(void)d;
-	ft_putstr("conv_c");
-	return (1);
+	c = (char)va_arg(*arg, int);
+	ret = vect_push(&d->v, c);
+	if (!ret)
+		return (F_EXIT_FAILURE);
+	d->r++;
+	d->skip++;
+	return (F_EXIT_SUCCESS);
 }
 
 /**
@@ -33,20 +40,30 @@ int	conv_c(const char *str, va_list *arg, t_data *d)
  */
 int	conv_s(const char *str, va_list *arg, t_data *d)
 {
+	char	*s;
+	int		ret;
+
+
 	(void)str;
-	(void)arg;
-	(void)d;
-	ft_putstr("conv_s");
-	return (1);
+	s = (char *)va_arg(*arg, char *);
+	ret = vect_cat(&d->v, s);
+	if (!ret)
+		return (F_EXIT_FAILURE);
+	d->r += ret;
+	d->skip++;
+	return (F_EXIT_SUCCESS);
 }
 
 int	conv_percent(const char *str, va_list *arg, t_data *d)
 {
+	int	ret;
+
 	(void)str;
 	(void)arg;
-	(void)d;
-	// ft_putstr("conv_percent");
-	d->r += vect_push(&d->v, '%');//TODO how to check failure
+	ret = vect_push(&d->v, '%');
+	if (!ret)
+		return (F_EXIT_FAILURE);
+	d->r++;
 	d->skip++;
 	return (F_EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 12:26:20 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 13:10:49 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define F_ARR_CONV     10
 // # define F_ARR_CONV_FLAG     6
 
-# define PRNT_EXIT_FAILURE   0
+# define PRNTF_EXIT_FAILURE   0
 # define PRNT_EXIT_SUCCESS   0
 # define F_EXIT_SUCCESS      1
 # define F_EXIT_FAILURE      0
@@ -84,6 +84,7 @@ typedef int	(*t_function_ptr)(const char *str, va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/ft_printf.c ] -=-=-=-=-=-=-=-=-=- */
 
+int		free_return(char *str, int ret);
 void	data_init(t_data *d);
 int		ft_printf(const char *str, ...);
 
@@ -138,6 +139,7 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 size_t	len_chrchr(char *str, char c);
 char	*ft_strchr(const char *s, int c);
+size_t	strlen_protect(const char *s);
 
 /*=={ src/vector }==*/
 

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 12:27:17 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 13:42:56 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #endif
 #include <stdio.h>
 
-#define ARG "%%"
+#define ARG "UwU %s %c%s%c", "OwO", '~', "VvV", '~'//TODO FIX
 
 int	main(void)
 {

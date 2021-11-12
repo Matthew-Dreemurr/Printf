@@ -6,11 +6,24 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 11:51:09 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 13:09:00 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @param ret 
+ * @return int 
+ */
+int	free_return(char *str, int ret)
+{
+	free (str);
+	return (ret);
+}
 
 /**
  * @brief Init all var in t_data struct.
@@ -39,18 +52,24 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
 	t_data	d;
+	int		vect_ret;
 
 	va_start(arg, str);
 	data_init(&d);
 	if (!vect_init(&d.v, VEC_BUFFER_SIZE))
-		return (PRNT_EXIT_FAILURE);
+		return (PRNTF_EXIT_FAILURE);
 	while (str[d.skip])//TODO check if str = "%%"
 	{
 		if (str[d.skip] != '%')
-			d.r += vect_push(&d.v, str[d.skip]);
+		{
+			vect_ret = vect_push(&d.v, str[d.skip]);
+			if (!vect_ret)
+				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
+			d.r += vect_ret;
+		}
 		else
 			if (!conversion_manager(str, &arg, &d))
-				return (PRNT_EXIT_FAILURE);
+				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
 		if (str[d.skip])
 			d.skip++;
 	}
