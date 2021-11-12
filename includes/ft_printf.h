@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:07:53 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 16:31:06 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /* _.-=+=-._.-=+=-._[ Macro ]_.-=+=-._.-=+=-._ */
 
-# define F_ARR_CONV           9
+# define F_ARR_CONV           10
 
 # define PRNTF_EXIT_FAILURE   0
 # define PRNT_EXIT_SUCCESS    0
