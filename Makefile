@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/12 13:18:02 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/12 14:24:50 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC			= gcc
 D = 0
 WRA = 0
 WRR = 1
+SANI = 0
 
 ifeq ($(WRA), 1)
 D = 1
@@ -23,9 +24,12 @@ INCLUDES		+= -I src/libft/includes/debug -D WRA
 endif
 
 ifeq ($(D), 1)
-CFLAGS		+= -fsanitize=address -g3
+CFLAGS		+= -g3
 endif
 
+ifeq ($(SANI), 1)
+CFLAGS += -fsanitize=address 
+endif
 
 INCLUDES	+= -I includes -I src/libft/includes
 CFLAGS		+= $(INCLUDES)
