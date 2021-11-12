@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 14:30:40 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 16:19:58 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ int	ft_printf(const char *str, ...)
 			if (!conversion_manager(str, &arg, &d))
 				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
 	}
-	ft_putstr_fd(d.v.buff, STDOUT_FILENO);
+	// ft_putstr_fd(d.v.buff, STDOUT_FILENO);//TODO remove all `d->r`
+	int rrrret = putstr_ret_int(d.v.buff);
 	free(d.v.buff);
-	return (d.r);
+	return (rrrret);
 }
