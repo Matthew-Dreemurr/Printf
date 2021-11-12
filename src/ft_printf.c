@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/11 17:53:44 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 11:51:09 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,13 @@ int	ft_printf(const char *str, ...)
 		return (PRNT_EXIT_FAILURE);
 	while (str[d.skip])//TODO check if str = "%%"
 	{
-		if (str[d.skip++] != '%')
+		if (str[d.skip] != '%')
 			d.r += vect_push(&d.v, str[d.skip]);
 		else
 			if (!conversion_manager(str, &arg, &d))
 				return (PRNT_EXIT_FAILURE);
+		if (str[d.skip])
+			d.skip++;
 	}
 	ft_putstr_fd(d.v.buff, STDOUT_FILENO);
 	free(d.v.buff);

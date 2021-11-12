@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/11 17:35:25 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/12 12:13:37 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC			= gcc
 
 D = 0
 WRA = 0
+WRR = 1
 
 ifeq ($(WRA), 1)
 D = 1
@@ -26,8 +27,11 @@ CFLAGS		+= -fsanitize=address -g3
 endif
 
 
-INCLUDES	+= -I includes
-CFLAGS		= -Wall -Wextra -Werror $(INCLUDES)
+INCLUDES	+= -I includes -I src/libft/includes
+CFLAGS		+= $(INCLUDES)
+ifeq ($(WRR), 1)
+CFLAGS += -Wall -Wextra -Werror
+endif
 
 NAME		= libftprintf.a
 
@@ -104,21 +108,23 @@ fclean: clean
 re: fclean all
 
 # _.-=+=-._.-=+=-._[ Dev Tools #TODO REMOVE ]_.-=+=-._.-=+=-._ #
-.PHONY: c, cf, r, git, fgit, m, mor, mft, exe
+.PHONY: c, cf, r, git, fgit, m, mor, mft, exe, h
 
 BRANCH	= main
 
-exe:
+h:
 	@echo "\033[1J"
+
+exe:
 	@./a.out
 
 m:
-	$(CC) $(CFLAG) $(INCLUDES) $(NAME) main.c
+	$(CC) $(CFLAGS) $(INCLUDES) $(NAME) main.c
 
 mor:
 	$(CC) main.c  -D OR_
 mft:
-	$(CC) $(CFLAG) $(INCLUDES) main.c $(NAME)  -D FT_
+	$(CC) $(CFLAGS) $(INCLUDES) main.c $(NAME)  -D FT_
 
 c: clean
 
