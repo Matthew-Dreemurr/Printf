@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:31:06 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 17:02:58 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 
 # define PRNTF_EXIT_FAILURE   0
 # define PRNT_EXIT_SUCCESS    0
+# define PRINTF_NULL_CASE     "(null)"
 # define F_EXIT_SUCCESS       1
 # define F_EXIT_FAILURE       0
+
 
 /* _.-=+=-._.-=+=-._[ Includes ]_.-=+=-._.-=+=-._ */
 
@@ -62,7 +64,6 @@ typedef struct s_vector
  */
 typedef struct s_data
 {
-	int			r;
 	int			minus;
 	int			zero;
 	int			point;
@@ -77,7 +78,7 @@ typedef struct s_data
 /**
  * @brief Function pointer.
  */
-typedef int	(*t_function_ptr)(const char *str, va_list *arg, t_data *d);
+typedef int	(*t_function_ptr)(va_list *arg, t_data *d);
 
 /* _.-=+=-._.-=+=-._[ Prototypes ]_.-=+=-._.-=+=-._ */
 
@@ -94,37 +95,37 @@ int		arg_manager(const char *str, va_list *av, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_char.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		conv_c(const char *str, va_list *arg, t_data *d);
-int		conv_s(const char *str, va_list *arg, t_data *d);
-int		conv_percent(const char *str, va_list *arg, t_data *d);
+int		conv_c(va_list *arg, t_data *d);
+int		conv_s(va_list *arg, t_data *d);
+int		conv_percent(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_digit.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conv_d_i(const char *str, va_list *arg, t_data *d);
-int		conv_u(const char *str, va_list *arg, t_data *d);
+int	conv_d_i(va_list *arg, t_data *d);
+int		conv_u(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_ptr.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		conv_p(const char *str, va_list *arg, t_data *d);
-int		conv_x(const char *str, va_list *arg, t_data *d);
-int		conv_xx(const char *str, va_list *arg, t_data *d);
+int		conv_p(va_list *arg, t_data *d);
+int		conv_x(va_list *arg, t_data *d);
+int		conv_xx(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_utils.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		conv_invalid(const char *str, va_list *arg, t_data *d);
+int		conv_invalid(va_list *arg, t_data *d);
 int		 width_len(const char *str, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_padding.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		flag_minus(const char *str, va_list *arg, t_data *d);
-int		flag_zero(const char *str, va_list *arg, t_data *d);
-int		flag_point(const char *str, va_list *arg, t_data *d);
+int		flag_minus(va_list *arg, t_data *d);
+int		flag_zero(va_list *arg, t_data *d);
+int		flag_point(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_prefix.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		flag_prefix(const char *str, va_list *arg, t_data *d);
-int		flag_unsign(const char *str, va_list *arg, t_data *d);
-int		flag_sing(const char *str, va_list *arg, t_data *d);
+int		flag_prefix(va_list *arg, t_data *d);
+int		flag_unsign(va_list *arg, t_data *d);
+int		flag_sing(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/libft/. ] -=-=-=-=-=-=-=-=-=- */
 

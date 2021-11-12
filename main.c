@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:29:30 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/12 16:59:55 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #endif
 #include <stdio.h>
 
-#define ARG "%i", 1231231
+#define ARG "Dans %s%cil y a%s%i letres", "l'Alphabet", ' ', NULL, 29
+// #define ARG "Dans %s%cil y a%s%i letres", "l'Alphabet", ' ', "", 29
+// #define ARG "%saaa", ""
 
 int	main(void)
 {
