@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/14 15:19:36 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/14 16:15:35 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,36 +46,38 @@ OBJ_DIR = obj_printf/
 
 # _.-=[ src/ ]=-._ #
 SRCS	= \
-src/ft_printf.c \
-src/arg_manager.c \
-src/conv_char.c \
-src/conv_ptr.c \
-src/conv_digit.c \
-src/conv_char.c \
-src/conv_utils.c \
+ft_printf.c \
+arg_manager.c \
+conv_char.c \
+conv_ptr.c \
+conv_digit.c \
+conv_char.c \
+conv_utils.c \
 # src/flag_padding.c \
 # src/flag_prefix.c
 
 # _.-=[ src/libft ]=-._ #
 SRCS	+= \
-src/libft/src/stdio/ft_putstr.c \
-src/libft/src/stdio/ft_putstr_fd.c \
-src/libft/src/stdio/ft_putchar.c \
-src/libft/src/stdio/putchar_ret_int.c \
-src/libft/src/stdio/putstr_ret_int.c \
-src/libft/src/stdio/ft_strchr.c \
-src/libft/src/stdio/strlen_protect.c \
-src/libft/src/string/len_chrchr.c \
-src/libft/src/ctype/ft_isdigit.c \
-src/libft/src/stdlib/ft_atoi.c \
-src/libft/src/vector/vect_cat.c \
-src/libft/src/vector/vect_push.c \
-src/libft/src/vector/vect_init.c \
-src/libft/src/vector/vect_resize.c \
-src/libft/src/string/ft_memcpy.c \
-src/libft/src/string/vect_itoa_cat.c \
-src/libft/src/string/vect_utoa_cat.c \
-src/libft/src/string/rev_char_arr.c
+ft_putstr.c \
+ft_putstr_fd.c \
+ft_putchar.c \
+putchar_ret_int.c \
+putstr_ret_int.c \
+ft_strchr.c \
+strlen_protect.c \
+len_chrchr.c \
+ft_isdigit.c \
+ft_atoi.c \
+vect_cat.c \
+vect_push.c \
+vect_init.c \
+vect_resize.c \
+ft_memcpy.c \
+vect_itoa_cat.c \
+vect_utoa_cat.c \
+rev_char_arr.c \
+vect_utohex_cat.c \
+vect_ultohex_cat.c
 
 
 SRC		= $(notdir $(SRCS))
@@ -127,7 +129,7 @@ h:
 exe:
 	@./a.out
 
-m:
+m: all
 	$(CC) $(CFLAGS) $(INCLUDES) $(NAME) main.c
 
 mor:

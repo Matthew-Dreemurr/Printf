@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 14:42:05 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:12:13 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,6 @@ int		ft_atoi(const char *str);
 size_t	len_chrchr(char *str, char c);
 char	*ft_strchr(const char *s, int c);
 size_t	strlen_protect(const char *s);
-int		vect_itoa_cat(int n, t_vector *v);
 void	rev_char_arr(char *str, size_t size);
 /*=={ src/vector }==*/
 
@@ -151,6 +150,9 @@ int			vect_init(t_vector *v, size_t size);
 int			vect_resize(t_vector *v, size_t size);
 int			vect_cat(t_vector *v, char *str);
 int			vect_push(t_vector *v, char c);
-char	*vect_utoa_cat(unsigned int n, t_vector *v);
+char		*vect_itoa_cat(int n, t_vector *v);
+char		*vect_utoa_cat(unsigned int n, t_vector *v);
+char		*vect_utohex_cat(unsigned int n, t_vector *v, int upper);
+char	*vect_ultohex_cat(size_t n, t_vector *v, int upper);
 
 #endif

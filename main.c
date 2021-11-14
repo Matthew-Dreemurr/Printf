@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 15:25:23 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:13:53 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stddef.h>
 #include <limits.h>
 
-#define ARG "{%u}\n", UINT_MAX
+#define ARG "{%p}\n", &ret_or
 // #define ARG "Dans %s%cil y a%s%i letres", "l'Alphabet", ' ', "", 29
 // #define ARG "%saaa", ""
 

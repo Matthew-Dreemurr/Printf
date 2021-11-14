@@ -6,12 +6,12 @@
 |:-----|:---|:--------------------------------------------------------|
 | `%c` | ✅ | Print a singlecharacter |
 | `%s` | ✅ | Print astring of characters |
-| `%p` | 🔧 | Print the argument as an address in hexadecimal digits. |
+| `%p` | ✅ | Print the argument as an address in hexadecimal digits. |
 | `%d` | ✅ | Print a decimal (base 10) number |
 | `%i` | ✅ | print an integer in base 10 |
 | `%u` | ✅ | print an unsigned decimal (base 10) number |
-| `%x` | 🔧 | Unsigned hexadecimal integer; uses `abcdef` |
-| `%X` | 🔧 | Unsigned hexadecimal integer; uses `ABCDEF` |
+| `%x` | ✅ | Unsigned hexadecimal integer; uses `abcdef` |
+| `%X` | ✅ | Unsigned hexadecimal integer; uses `ABCDEF` |
 | `%%` | ✅ | Print `%` |
 
 <!--
@@ -30,6 +30,7 @@
 | `% `          | 🔧 |   Use a blank to prefix the output value if it's signed and positive. The blank is ignored if both the blank and + flags appear |
 | `%+`          | 🔧 |   Use a sign (`+` or `-`) to prefix the output value if it's of a signed type. |
 --->
-### Sources
+
+## Sources
 
 Secrets of “printf” Professor Don Colton <https://www.cypress.com/file/54441/download>
