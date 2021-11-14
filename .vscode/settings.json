@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"ft_printf.h": "c",
-		"__config": "cpp"
+		"__config": "cpp",
+		"climits": "cpp",
+		"limits.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:59:55 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 15:25:23 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #include "ft_printf.h"
 #endif
 #include <stdio.h>
+#include <stddef.h>
+#include <limits.h>
 
-#define ARG "Dans %s%cil y a%s%i letres", "l'Alphabet", ' ', NULL, 29
+#define ARG "{%u}\n", UINT_MAX
 // #define ARG "Dans %s%cil y a%s%i letres", "l'Alphabet", ' ', "", 29
 // #define ARG "%saaa", ""
 
@@ -25,16 +27,16 @@ int	main(void)
 #ifndef FT_
 	int ret_or = 0;
 
-	printf("OR_\n");
+	printf("OR_");
 	ret_or = printf(ARG);
-	printf("\n[%d]\n", ret_or);
+	printf("[%d]\n", ret_or);
 #endif
 #ifndef OR_
 	int ret_ft = 0;
 
-	ft_putstr("FT_\n");
+	ft_putstr("\n\nFT_");
 	ret_ft = ft_printf(ARG);
-	printf("\n[%d]\n\n", ret_ft);
+	printf("[%d]\n", ret_ft);
 #endif
 	return (0);
 }

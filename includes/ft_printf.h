@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 17:02:58 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 14:42:05 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,6 @@ int			vect_init(t_vector *v, size_t size);
 int			vect_resize(t_vector *v, size_t size);
 int			vect_cat(t_vector *v, char *str);
 int			vect_push(t_vector *v, char c);
+char	*vect_utoa_cat(unsigned int n, t_vector *v);
 
 #endif

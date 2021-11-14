@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:01:32 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:55:21 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 14:42:26 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	conv_d_i(va_list *arg, t_data *d)
  */
 int	conv_u(va_list *arg, t_data *d)
 {
-	(void)arg;
-	(void)d;
-	return (1);
+	if (!vect_utoa_cat((int)va_arg(*arg, int), &d->v))
+		return (F_EXIT_FAILURE);
+	d->skip++;
+	return (F_EXIT_SUCCESS);
 }

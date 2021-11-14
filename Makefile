@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/12 16:59:19 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/14 15:19:36 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,13 @@ D = 1
 INCLUDES		+= -I src/libft/includes/debug -D WRA
 endif
 
-ifeq ($(D), 1)
-CFLAGS		+= -g3
+ifeq ($(SANI), 1)
+D = 1
+CFLAGS += -fsanitize=address 
 endif
 
-ifeq ($(SANI), 1)
-CFLAGS += -fsanitize=address 
+ifeq ($(D), 1)
+CFLAGS		+= -g3
 endif
 
 INCLUDES	+= -I includes -I src/libft/includes
@@ -73,6 +74,7 @@ src/libft/src/vector/vect_init.c \
 src/libft/src/vector/vect_resize.c \
 src/libft/src/string/ft_memcpy.c \
 src/libft/src/string/vect_itoa_cat.c \
+src/libft/src/string/vect_utoa_cat.c \
 src/libft/src/string/rev_char_arr.c
 
 
