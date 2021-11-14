@@ -6,34 +6,35 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 16:42:22 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 17:24:47 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-/* _.-=+=-._.-=+=-._[ Macro ]_.-=+=-._.-=+=-._ */
+/* _.-=+=-._.-=+=-._[ macro ]_.-=+=-._.-=+=-._ */
 
 # define F_ARR_CONV           10
 
 # define PRNTF_EXIT_FAILURE   0
 # define PRNT_EXIT_SUCCESS    0
-# define PRINTF_NULL_CASE     "(null)"
+
 # define F_EXIT_SUCCESS       1
 # define F_EXIT_FAILURE       0
 
+# define PRINTF_NULL_CASE     "(null)"
 
-/* _.-=+=-._.-=+=-._[ Includes ]_.-=+=-._.-=+=-._ */
+/* _.-=+=-._.-=+=-._[ includes ]_.-=+=-._.-=+=-._ */
 
-/* -[ Malloc, Free ]-*/
+/* -[ malloc, free ]-*/
 # include <stdarg.h>
-/* -[ Va_start, Va_arg, Va_copy, Va_arg ]-*/
+/* -[ va_start, va_arg, va_copy, va_arg ]-*/
 # include <stdlib.h>
-/* -[ Write ]-*/
+/* -[ write ]-*/
 # include <unistd.h>
 
-/* _.-=+=-._.-=+=-._[ Typedef ]_.-=+=-._.-=+=-._ */
+/* _.-=+=-._.-=+=-._[ typedef ]_.-=+=-._.-=+=-._ */
 
 /**
  * @brief s_vector struc to manage the memory of a char array.
@@ -57,7 +58,7 @@ typedef struct s_vector
  */
 typedef struct s_data
 {
-	int				ft_printf_return;
+	int			ft_printf_return;
 	int			skip;
 	t_vector	v;
 }				t_data;
@@ -67,7 +68,7 @@ typedef struct s_data
  */
 typedef int	(*t_function_ptr)(va_list *arg, t_data *d);
 
-/* _.-=+=-._.-=+=-._[ Prototypes ]_.-=+=-._.-=+=-._ */
+/* _.-=+=-._.-=+=-._[ prototypes ]_.-=+=-._.-=+=-._ */
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/ft_printf.c ] -=-=-=-=-=-=-=-=-=- */
 
@@ -88,7 +89,7 @@ int		conv_percent(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_digit.c ] -=-=-=-=-=-=-=-=-=- */
 
-int	conv_d_i(va_list *arg, t_data *d);
+int		conv_d_i(va_list *arg, t_data *d);
 int		conv_u(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_ptr.c ] -=-=-=-=-=-=-=-=-=- */
@@ -100,7 +101,7 @@ int		conv_xx(va_list *arg, t_data *d);
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_utils.c ] -=-=-=-=-=-=-=-=-=- */
 
 int		conv_invalid(va_list *arg, t_data *d);
-int		 width_len(const char *str, t_data *d);
+int		width_len(const char *str, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_padding.c ] -=-=-=-=-=-=-=-=-=- */
 
@@ -133,13 +134,13 @@ void	rev_char_arr(char *str, size_t size);
 # define VEC_EXIT_SUCCESS ((int)1)
 # define VEC_BUFFER_SIZE  ((unsigned long)256)
 
-int			vect_init(t_vector *v, size_t size);
-int			vect_resize(t_vector *v, size_t size);
-int			vect_cat(t_vector *v, char *str);
-int			vect_push(t_vector *v, char c);
-char		*vect_itoa_cat(int n, t_vector *v);
-char		*vect_utoa_cat(unsigned int n, t_vector *v);
-char		*vect_utohex_cat(unsigned int n, t_vector *v, int upper);
+int		vect_init(t_vector *v, size_t size);
+int		vect_resize(t_vector *v, size_t size);
+int		vect_cat(t_vector *v, char *str);
+int		vect_push(t_vector *v, char c);
+char	*vect_itoa_cat(int n, t_vector *v);
+char	*vect_utoa_cat(unsigned int n, t_vector *v);
+char	*vect_utohex_cat(unsigned int n, t_vector *v, int upper);
 char	*vect_ultohex_cat(size_t n, t_vector *v, int upper);
 
 #endif
