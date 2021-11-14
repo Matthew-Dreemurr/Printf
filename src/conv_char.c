@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:32:52 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 17:02:51 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:44:13 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ int	conv_c(va_list *arg, t_data *d)
 {
 	char	c;
 
+	d->skip++;
 	c = (char)va_arg(*arg, int);
+	if (!c)
+	{
+		d->ft_printf_return++;
+		return (F_EXIT_SUCCESS);
+	}
 	if (!vect_push(&d->v, c))
 		return (F_EXIT_FAILURE);
-	d->skip++;
 	return (F_EXIT_SUCCESS);
 }
 
@@ -37,6 +42,7 @@ int	conv_s(va_list *arg, t_data *d)
 {
 	char	*s;
 
+	d->skip++;
 	s = (char *)va_arg(*arg, char *);
 	if (!s)
 	{
@@ -45,7 +51,6 @@ int	conv_s(va_list *arg, t_data *d)
 	}
 	else if (!vect_cat(&d->v, s))
 		return (F_EXIT_FAILURE);
-	d->skip++;
 	return (F_EXIT_SUCCESS);
 }
 
@@ -56,9 +61,9 @@ int	conv_s(va_list *arg, t_data *d)
  */
 int	conv_percent(va_list *arg, t_data *d)
 {
+	d->skip++;
 	(void)arg;
 	if (!vect_push(&d->v, '%'))
 		return (F_EXIT_FAILURE);
-	d->skip++;
 	return (F_EXIT_SUCCESS);
 }

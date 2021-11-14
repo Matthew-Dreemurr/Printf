@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:56:51 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:46:51 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,8 @@ int	free_return(char *str, int ret)
  */
 void	data_init(t_data *d)
 {
-	d->minus = 0;
-	d->zero = 0;
-	d->point = 0;
-	d->prefix = 0;
-	d->unsign = 0;
-	d->sign = 0;
-	d->width = 0;
 	d->skip = 0;
+	d->ft_printf_return = 0;
 }
 
 /**
@@ -56,7 +50,7 @@ int	ft_printf(const char *str, ...)
 	data_init(&d);
 	if (!vect_init(&d.v, VEC_BUFFER_SIZE))
 		return (PRNTF_EXIT_FAILURE);
-	while (str[d.skip])//TODO check if str = "%%"
+	while (str[d.skip])
 	{
 		if (str[d.skip] != '%')
 		{
@@ -68,7 +62,7 @@ int	ft_printf(const char *str, ...)
 			if (!conversion_manager(str, &arg, &d))
 				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
 	}
-	int rrrret = putstr_ret_int(d.v.buff);
+	d.ft_printf_return += putstr_ret_int(d.v.buff);
 	free(d.v.buff);
-	return (rrrret);
+	return (d.ft_printf_return);
 }

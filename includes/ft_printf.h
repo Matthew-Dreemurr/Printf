@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 16:12:13 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:42:22 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,14 @@ typedef struct s_vector
 }				t_vector;
 
 /**
- * @brief test
  * @param r          `int`     Return value.
- * @param minus      `int`     Flag `-`.
- * @param zero       `int`     Flag `0`.
- * @param point      `int`     Flag `.`.
- * @param prefix     `int`     Flag `#`.
- * @param unsign     `int`     Flag ` `.
- * @param sing       `int`     Flag `+`.
  * @param width      `int`  The size of minimum field.
  * @param skip       `int`  The char to skip in `str`.
  *
  */
 typedef struct s_data
 {
-	int			minus;
-	int			zero;
-	int			point;
-	int			prefix;
-	int			unsign;
-	int			sign;
-	int			width;
+	int				ft_printf_return;
 	int			skip;
 	t_vector	v;
 }				t_data;

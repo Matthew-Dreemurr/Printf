@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:45:18 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/12 16:57:23 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:39:24 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	conv_invalid(va_list *arg, t_data *d)
  * 
  * @return The len of `nbr`.
  */
+/**
 int width_len(const char *str, t_data *d)
 {
 	int	nbr;
@@ -48,3 +49,4 @@ int width_len(const char *str, t_data *d)
 	}
 	return (i);
 }
+**/

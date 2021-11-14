@@ -3,6 +3,8 @@
 		"ft_printf.h": "c",
 		"__config": "cpp",
 		"climits": "cpp",
-		"limits.h": "c"
+		"limits.h": "c",
+		"bitset": "cpp",
+		"stdexcept": "cpp"
 	}
 }
