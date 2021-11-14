@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 16:55:08 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/14 17:01:27 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stddef.h>
 #include <limits.h>
 
-#define ARG " %c %c %c ", '2', '1', 0
+#define ARG "%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%\n", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0
 // #define ARG "Dans %s%cil y a%s%i letres", "l'Alphabet", ' ', "", 29
 // #define ARG "%saaa", ""
 
