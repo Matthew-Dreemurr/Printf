@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 17:24:47 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/15 11:48:15 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ int		conv_xx(va_list *arg, t_data *d);
 /* -=-=-=-=-=-=-=-=-=- File: [ src/conv_utils.c ] -=-=-=-=-=-=-=-=-=- */
 
 int		conv_invalid(va_list *arg, t_data *d);
-int		width_len(const char *str, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/flag_padding.c ] -=-=-=-=-=-=-=-=-=- */
 
@@ -109,23 +108,9 @@ int		flag_minus(va_list *arg, t_data *d);
 int		flag_zero(va_list *arg, t_data *d);
 int		flag_point(va_list *arg, t_data *d);
 
-/* -=-=-=-=-=-=-=-=-=- File: [ src/flag_prefix.c ] -=-=-=-=-=-=-=-=-=- */
-
-int		flag_prefix(va_list *arg, t_data *d);
-int		flag_unsign(va_list *arg, t_data *d);
-int		flag_sing(va_list *arg, t_data *d);
-
 /* -=-=-=-=-=-=-=-=-=- File: [ src/libft/. ] -=-=-=-=-=-=-=-=-=- */
 
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_putstr_fd(char *s, int fd);
 int		putstr_ret_int(char *s);
-int		putchar_ret_int(char c);
-int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
-size_t	len_chrchr(char *str, char c);
-char	*ft_strchr(const char *s, int c);
 size_t	strlen_protect(const char *s);
 void	rev_char_arr(char *str, size_t size);
 /*=={ src/vector }==*/
