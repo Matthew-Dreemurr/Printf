@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:55:07 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 17:01:27 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/15 11:48:01 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 #ifndef OR_
 	int ret_ft = 0;
 
-	ft_putstr("\n\nFT_");
+	write(1, "\n\nFT_", 6);
 	ret_ft = ft_printf(ARG);
 	printf("[%d]\n", ret_ft);
 #endif
