@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/14 17:14:50 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/15 11:15:17 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,9 +52,7 @@ conv_char.c \
 conv_ptr.c \
 conv_digit.c \
 conv_char.c \
-conv_utils.c \
-# src/flag_padding.c \
-# src/flag_prefix.c
+conv_utils.c
 
 # _.-=[ src/libft ]=-._ #
 SRCS	+= \
