@@ -5,6 +5,8 @@
 		"climits": "cpp",
 		"limits.h": "c",
 		"bitset": "cpp",
-		"stdexcept": "cpp"
+		"stdexcept": "cpp",
+		"unistd.h": "c",
+		"libft.h": "c"
 	}
 }

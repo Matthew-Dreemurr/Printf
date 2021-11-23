@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/15 11:15:17 by mahadad          ###   ########.fr        #
+#    Updated: 2021/11/23 13:42:03 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,8 @@ vect_itoa_cat.c \
 vect_utoa_cat.c \
 rev_char_arr.c \
 vect_utohex_cat.c \
-vect_ultohex_cat.c
+vect_ultohex_cat.c \
+putvectbuff_ret_int.c
 
 
 SRC		= $(notdir $(SRCS))

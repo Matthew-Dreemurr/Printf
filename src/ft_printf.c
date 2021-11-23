@@ -6,11 +6,12 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/14 16:46:51 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/11/23 13:42:18 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 /**
  * @brief 
@@ -62,7 +63,8 @@ int	ft_printf(const char *str, ...)
 			if (!conversion_manager(str, &arg, &d))
 				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
 	}
-	d.ft_printf_return += putstr_ret_int(d.v.buff);
+	// printf("[[%lu]]", d.v.len);
+	d.ft_printf_return += putvectbuff_ret_int(&d.v);
 	free(d.v.buff);
 	return (d.ft_printf_return);
 }
