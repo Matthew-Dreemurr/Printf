@@ -1,0 +1,9 @@
+[submodule "Printf"]
+	path = Printf
+	url = git@github.com:Matthew-Dreemurr/Printf.git
+[submodule "Libft"]
+	path = Libft
+	url = git@github.com:Matthew-Dreemurr/Libft.git
+[submodule "vector-buffer"]
+	path = vector-buffer
+	url = git@github.com:Matthew-Dreemurr/vector-buffer.git
