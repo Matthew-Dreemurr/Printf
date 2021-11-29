@@ -1,6 +1,7 @@
 # Printf
 
 # Not working any more, need to fix the source file dir.
+Check the [norm_repo](https://github.com/Matthew-Dreemurr/Printf/tree/norm_repo/src) bramch
 
 ## Why does the code look weird ?
 
