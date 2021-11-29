@@ -1,5 +1,7 @@
 # Printf
 
+# Not working any more, need to fix the source file dir.
+
 ## Why does the code look weird ?
 
 The 42 curriculum asks us to code according to the `Norme`, this standard forbids us certain control structures (like `do while`, `for`, ...), a limit of 25 lines and 5 variables per function, 5 function max per `.c` and and other constraints.
