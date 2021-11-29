@@ -6,7 +6,7 @@ The 42 curriculum asks us to code according to the `Norme`, this standard forbid
 
 This project has been coded according to the `NormeV3` standard.
 
-[NormeV3 PDF](https://github.com/42School/norminette) used in this projetc
+[NormeV3 PDF](https://github.com/Matthew-Dreemurr/Media-Stock/blob/master/norm/en.normV3.pdf) used in this projetc
 
 [Norme repo](https://github.com/42School/norminette)
 
