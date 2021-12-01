@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/23 13:41:51 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/12/01 16:13:48 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,20 +113,5 @@ int		flag_point(va_list *arg, t_data *d);
 int		putstr_ret_int(char *s);
 size_t	strlen_protect(const char *s);
 void	rev_char_arr(char *str, size_t size);
-/*=={ src/vector }==*/
-
-# define VEC_EXIT_FAILURE ((int)0)
-# define VEC_EXIT_SUCCESS ((int)1)
-# define VEC_BUFFER_SIZE  ((unsigned long)256)
-
-int		vect_init(t_vector *v, size_t size);
-int		vect_resize(t_vector *v, size_t size);
-int		vect_cat(t_vector *v, char *str);
-int		vect_push(t_vector *v, char c);
-char	*vect_itoa_cat(int n, t_vector *v);
-char	*vect_utoa_cat(unsigned int n, t_vector *v);
-char	*vect_utohex_cat(unsigned int n, t_vector *v, int upper);
-char	*vect_ultohex_cat(size_t n, t_vector *v, int upper);
-int		putvectbuff_ret_int(t_vector *vect);
 
 #endif
