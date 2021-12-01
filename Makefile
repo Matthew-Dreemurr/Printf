@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/29 16:55:33 by mahadad          ###   ########.fr        #
+#    Updated: 2021/12/01 16:59:28 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ ifeq ($(D), 1)
 CFLAGS		+= -g3
 endif
 
-INCLUDES	+= -I includes -I src/libft/includes
+INCLUDES	+= -I includes -I ../libft/includes -I ../vector-buffer/includes
 CFLAGS		+= $(INCLUDES)
 ifeq ($(WRR), 1)
 CFLAGS += -Wall -Wextra -Werror
@@ -54,34 +54,12 @@ conv_digit.c \
 conv_char.c \
 conv_utils.c
 
-# _.-=[ src/libft ]=-._ #
-SRCS	+= \
-ft_putstr.c \
-ft_putstr_fd.c \
-ft_putchar.c \
-putchar_ret_int.c \
-putstr_ret_int.c \
-ft_strchr.c \
-strlen_protect.c \
-len_chrchr.c \
-ft_isdigit.c \
-ft_atoi.c \
-vect_cat.c \
-vect_push.c \
-vect_init.c \
-vect_resize.c \
-ft_memcpy.c \
-vect_itoa_cat.c \
-vect_utoa_cat.c \
-rev_char_arr.c \
-vect_utohex_cat.c \
-vect_ultohex_cat.c \
-putvectbuff_ret_int.c
-
-
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_DIR), $(OBJ))
+
+DEP_LIBFT = ../libft/obj_libft
+DEP_VECT = ../vector-buffer/obj_vector_buffer
 
 VPATH	= $(SRC_DIR) $(OBJ_DIR) $(shell find $(SRC_DIR) -type d)
 
@@ -92,6 +70,12 @@ all: $(NAME)
 	@printf "\033[32;1m[== $(NAME) Created ! ==]\033[32;0m\n"
 	@if [[ $D = "1" ]]; then printf "\033[31;1m[/!\\ DEBUG ENABLE /!\\]\033[32;0m\n"; fi
 
+$(DEP_LIBFT):
+	@make only_obj -C ../libft
+	
+$(DEP_VECT):
+	@make only_obj -C ../vector-buffer
+
 $(OBJ_DIR)%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "\033[32;1m$@\033[32;0m\n"
@@ -100,33 +84,32 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@printf "\033[32;1m[Create $(OBJ_DIR)]\033[32;0m\n"
 
-$(NAME): $(OBJ_DIR) $(OBJS)
+$(NAME): $(DEP_LIBFT) $(DEP_VECT) $(OBJ_DIR) $(OBJS)
 	@printf "\033[32;1m[Compiled /w CFLAGS=$(CFLAGS)]\033[32;0m\n"
-	@ar -rcs $(NAME) $(OBJS)
+	ar -rcs $(NAME) $(OBJS) $(shell find $(DEP_LIBFT) -type f -name "*.o") $(shell find $(DEP_VECT) -type f -name "*.o")
 	@printf "\033[32;1m[== Linked OK ==]\033[32;0m\n"
 
 clean:
+	make clean -C ../vector-buffer
 	@rm -rf $(OBJS)
 	@printf "\033[31;1m[Remove *.o]\033[32;0m\n"
 	@rm -rf $(OBJ_DIR)
 	@printf "\033[31;1m[Remove $(OBJ_DIR)]\033[32;0m\n"
 
 fclean: clean
+	make fclean -C ../vector-buffer
 	@rm -f $(NAME)
 	@printf "\033[31;1m[Remove $(NAME)]\033[32;0m\n"
 
 re: fclean all
 
 # _.-=+=-._.-=+=-._[ Dev Tools #TODO REMOVE ]_.-=+=-._.-=+=-._ #
-.PHONY: c, cf, r, git, fgit, m, mor, mft, exe, h
-
-h:
-	@echo "\033[1J"
+.PHONY: c, cf, r, git, fgit, m, mor, mft, exe, test
 
 exe:
 	@./a.out
 
-m: all
+test : $(NAME)
 	$(CC) $(CFLAGS) $(INCLUDES) $(NAME) main.c
 
 mor:

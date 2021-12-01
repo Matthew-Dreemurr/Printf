@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/12/01 16:12:25 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/12/01 16:47:44 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param ret 
  * @return int 
  */
-int	free_return(char *str, int ret)
+int	printf_free_return(char *str, int ret)
 {
 	free (str);
 	return (ret);
@@ -55,12 +55,12 @@ int	ft_printf(const char *str, ...)
 		if (str[d.skip] != '%')
 		{
 			if (!vect_push(&d.v, str[d.skip]))
-				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
+				return (printf_free_return(d.v.buff, PRNTF_EXIT_FAILURE));
 			d.skip++;
 		}
 		else
 			if (!conversion_manager(str, &arg, &d))
-				return (free_return(d.v.buff, PRNTF_EXIT_FAILURE));
+				return (printf_free_return(d.v.buff, PRNTF_EXIT_FAILURE));
 	}
 	d.ft_printf_return += putvectbuff_ret_int(&d.v);
 	free(d.v.buff);

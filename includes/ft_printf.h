@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:26:34 by mahadad           #+#    #+#             */
-/*   Updated: 2021/12/01 16:13:48 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/12/01 16:47:44 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,9 @@
 /* -[ write ]-*/
 # include <unistd.h>
 
-/* _.-=+=-._.-=+=-._[ typedef ]_.-=+=-._.-=+=-._ */
+# include "vector.h"
 
-/**
- * @brief s_vector struc to manage the memory of a char array.
- * 
- * @param len      Actual size use in buff.
- * @param max      Actual max size.
- * @param buff     The buffer is alloc whit (VEC_BUFFER_SIZE + 1).
- */
-typedef struct s_vector
-{
-	size_t	len;
-	size_t	max;
-	char	*buff;
-}				t_vector;
+/* _.-=+=-._.-=+=-._[ typedef ]_.-=+=-._.-=+=-._ */
 
 /**
  * @param r          `int`     Return value.
@@ -72,7 +60,7 @@ typedef int	(*t_function_ptr)(va_list *arg, t_data *d);
 
 /* -=-=-=-=-=-=-=-=-=- File: [ src/ft_printf.c ] -=-=-=-=-=-=-=-=-=- */
 
-int		free_return(char *str, int ret);
+int		printf_free_return(char *str, int ret);
 void	data_init(t_data *d);
 int		ft_printf(const char *str, ...);
 
