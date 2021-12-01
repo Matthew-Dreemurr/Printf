@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/12/01 16:59:28 by mahadad          ###   ########.fr        #
+#    Updated: 2021/12/01 17:07:37 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ D = 0
 WRA = 0
 WRR = 1
 SANI = 0
+COMP_D = 0
 
 ifeq ($(WRA), 1)
 D = 1
@@ -78,19 +79,19 @@ $(DEP_VECT):
 
 $(OBJ_DIR)%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "\033[32;1m$@\033[32;0m\n"
+	@if [[ $(COMP_D) = "0" ]]; then printf "\033[32;1m.\033[32;0m"; else printf "\033[32;1m$@\033[32;0m\n"; fi
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@printf "\033[32;1m[Create $(OBJ_DIR)]\033[32;0m\n"
 
 $(NAME): $(DEP_LIBFT) $(DEP_VECT) $(OBJ_DIR) $(OBJS)
-	@printf "\033[32;1m[Compiled /w CFLAGS=$(CFLAGS)]\033[32;0m\n"
-	ar -rcs $(NAME) $(OBJS) $(shell find $(DEP_LIBFT) -type f -name "*.o") $(shell find $(DEP_VECT) -type f -name "*.o")
+	@printf "\n\033[32;3m[Compiled /w CFLAGS=$(CFLAGS)]\033[32;0m\n"
+	@ar -rcs $(NAME) $(OBJS) $(shell find $(DEP_LIBFT) -type f -name "*.o") $(shell find $(DEP_VECT) -type f -name "*.o")
 	@printf "\033[32;1m[== Linked OK ==]\033[32;0m\n"
 
 clean:
-	make clean -C ../vector-buffer
+	@make clean -C ../vector-buffer
 	@rm -rf $(OBJS)
 	@printf "\033[31;1m[Remove *.o]\033[32;0m\n"
 	@rm -rf $(OBJ_DIR)
