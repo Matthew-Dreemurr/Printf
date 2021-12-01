@@ -6,12 +6,23 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/12/01 16:11:21 by mahadad          ###   ########.fr        #
+#    Updated: 2021/12/01 17:05:25 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# _.-=+=-._.-=+=-._[ Var ]_.-=+=-._.-=+=-._ #
+.PHONY: all, re, clean, fclean
 
+all:
+	make -C printf/
+
+re:
+	make re -C printf/
+
+clean:
+	make clean -C printf/
+
+fclean:
+	make fclean -C printf/
 
 # _.-=+=-._.-=+=-._[ Dev Tools #TODO REMOVE ]_.-=+=-._.-=+=-._ #
 .PHONY: c, cf, r, git, fgit, m, mor, mft, exe, h
