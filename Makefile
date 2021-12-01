@@ -6,7 +6,7 @@
 #    By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 16:49:27 by mahadad           #+#    #+#              #
-#    Updated: 2021/11/29 21:13:23 by mahadad          ###   ########.fr        #
+#    Updated: 2021/12/01 12:38:00 by mahadad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,11 @@ NAME		= libftprintf.a
 SRC_DIR = src/
 OBJ_DIR = obj_printf/
 
+DEP_LIBFT = Libft/libft.a
+DEP_vect = vector_buffer/vector_buffer.a
+
 # _.-=[ *.a ]=-._ #
 SRCS	+= \
-
 
 SRC		= $(notdir $(SRCS))
 OBJ		= $(SRC:.c=.o)
