@@ -6,7 +6,7 @@
 /*   By: mahadad <mahadad@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:29:13 by mahadad           #+#    #+#             */
-/*   Updated: 2021/11/23 14:01:08 by mahadad          ###   ########.fr       */
+/*   Updated: 2021/12/01 16:12:25 by mahadad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_printf(const char *str, ...)
 
 	va_start(arg, str);
 	data_init(&d);
-	if (!vect_init(&d.v, VEC_BUFFER_SIZE))
+	if (!vect_init(&d.v))
 		return (PRNTF_EXIT_FAILURE);
 	while (str[d.skip])
 	{
