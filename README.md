@@ -44,3 +44,5 @@ This project has been coded according to the `NormeV3` standard.
 ## Sources
 
 Secrets of “printf” Professor Don Colton <https://www.cypress.com/file/54441/download>
+
+This work is published under the terms of **[42 Unlicense](https://github.com/gcamerli/42unlicense)**.
